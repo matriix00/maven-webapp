@@ -12,7 +12,8 @@ node{
     
     stage('SonarQube analysis') {       
         withSonarQubeEnv('sonar-app') {
-       	sh "mvn sonar:sonar"    	
+        def mavenCMD = "${mavenHome}/bin/mvn"
+       	sh "${mavenCMD} sonar:sonar"    	
     }
         
 //     stage('upload war to nexus'){
