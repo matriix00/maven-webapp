@@ -12,6 +12,7 @@ node{
     
     stage('SonarQube analysis') {       
         withSonarQubeEnv('sonar-app') {
+        def mavenHome = tool name: "maven", type: "maven"
         def mavenCMD = "${mavenHome}/bin/mvn"
        	sh "${mavenCMD} sonar:sonar"    	
     }
