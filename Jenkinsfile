@@ -18,34 +18,34 @@ node{
 //     }
 // }
         
-    stage('upload war to nexus'){
-		nexusArtifactUploader artifacts: [	
-			[
-				artifactId: '01-maven-web-app',
-				classifier: '',
-				file: 'target/01-maven-web-app.war',
-				type: "war",
-			]	
-		],
-		credentialsId: 'nexus-secrets',
-		groupId: 'in.ashokit',
-		nexusUrl: '54.174.47.242:8081/',
-		protocol: 'http',
-		repository: 'simpleapp-release'
-		version: '1.0.0'
+//     stage('upload war to nexus'){
+// 		nexusArtifactUploader artifacts: [	
+// 			[
+// 				artifactId: '01-maven-web-app',
+// 				classifier: '',
+// 				file: 'target/01-maven-web-app.war',
+// 				type: "war",
+// 			]	
+// 		],
+// 		credentialsId: 'nexus-secrets',
+// 		groupId: 'in.ashokit',
+// 		nexusUrl: '54.174.47.242:8081/',
+// 		protocol: 'http',
+// 		repository: 'simpleapp-release'
+// 		version: '1.0.0'
 	
-}
+// }
     
-//     stage('Build Image'){
-//         sh 'docker build -t magdy79/mavenwebapp .'
-//     }
+    stage('Build Image'){
+        sh 'docker build -t magdy79/mavenwebapp .'
+    }
     
-//     stage('Push Image'){
-//         withCredentials([string(credentialsId: 'dockerhub-secret', variable: 'pass')]) {
-//             sh 'docker login -u magdy79 -p ${pass}'
-//         }
-//         sh 'docker push magdy79/mavenwebapp'
-//     }
+    stage('Push Image'){
+        withCredentials([string(credentialsId: 'dockerhub-secret', variable: 'pass')]) {
+            sh 'docker login -u magdy79 -p ${pass}'
+        }
+        sh 'docker push magdy79/mavenwebapp'
+    }
     
 //     stage('Deploy App'){
 //         kubernetesDeploy(
