@@ -32,7 +32,7 @@ node{
 		nexusUrl: '54.174.47.242:8081/',
 		protocol: 'http',
 		repository: 'simpleapp-release'
-		version: '3.0-SNAPSHOT'
+		version: '1.0.0'
 	
 }
     
