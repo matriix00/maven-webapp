@@ -27,7 +27,7 @@ node{
 				type: "war"		
 			]	
 		],
-		credentialsId: 'nexus-secret',
+		credentialsId: 'nexus-secrets',
 		groupId: 'in.ashokit',
 		nexusUrl: '54.174.47.242:8081',
 		protocol: 'http',
