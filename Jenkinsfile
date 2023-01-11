@@ -1,7 +1,7 @@
 node{
     
     stage('Clone repo'){
-        git credentialsId: 'GIT-Credentials', url: 'https://github.com/ashokitschool/maven-web-app.git'
+        git credentialsId: 'GIT-Credentials', url: 'https://github.com/matriix00/maven-webapp.git'
     }
     
     stage('Maven Build'){
@@ -10,41 +10,42 @@ node{
         sh "${mavenCMD} clean package"
     }
     
-    stage('SonarQube analysis') {       
-        withSonarQubeEnv('sonar-app') {
-        def mavenHome = tool name: "maven", type: "maven"
-        def mavenCMD = "${mavenHome}/bin/mvn"
-       	sh "${mavenCMD} sonar:sonar"    	
-    }
-        
-//     stage('upload war to nexus'){
-// 	steps{
-// 		nexusArtifactUploader artifacts: [	
-// 			[
-// 				artifactId: '01-maven-web-app',
-// 				classifier: '',
-// 				file: 'target/01-maven-web-app.war',
-// 				type: war		
-// 			]	
-// 		],
-// 		credentialsId: 'nexus3',
-// 		groupId: 'in.ashokit',
-// 		nexusUrl: '',
-// 		protocol: 'http',
-// 		repository: 'ashokit-release'
-// 		version: '1.0.0'
-// 	}
+//     stage('SonarQube analysis') {       
+//         withSonarQubeEnv('sonar-app') {
+//         def mavenHome = tool name: "maven", type: "maven"
+//         def mavenCMD = "${mavenHome}/bin/mvn"
+//        	sh "${mavenCMD} sonar:sonar"    	
+//     }
 // }
+        
+    stage('upload war to nexus'){
+	steps{
+		nexusArtifactUploader artifacts: [	
+			[
+				artifactId: '01-maven-web-app',
+				classifier: '',
+				file: 'target/01-maven-web-app.war',
+				type: war		
+			]	
+		],
+		credentialsId: 'nexus-secret',
+		groupId: 'in.magdy',
+		nexusUrl: 'http://54.174.47.242:8081/',
+		protocol: 'http',
+		repository: 'simpleapp-release'
+		version: '1.0.0'
+	}
+}
     
 //     stage('Build Image'){
-//         sh 'docker build -t ashokit/mavenwebapp .'
+//         sh 'docker build -t magdy79/mavenwebapp .'
 //     }
     
 //     stage('Push Image'){
-//         withCredentials([string(credentialsId: 'DOCKER-CREDENTIALS', variable: 'DOCKER_CREDENTIALS')]) {
-//             sh 'docker login -u ashokit -p ${DOCKER_CREDENTIALS}'
+//         withCredentials([string(credentialsId: 'dockerhub-secret', variable: 'pass')]) {
+//             sh 'docker login -u magdy79 -p ${pass}'
 //         }
-//         sh 'docker push ashokit/mavenwebapp'
+//         sh 'docker push magdy79/mavenwebapp'
 //     }
     
 //     stage('Deploy App'){
@@ -53,5 +54,5 @@ node{
 //             kubeconfigId: 'Kube-Config'
 //         )
 //     }    
-}
+//}
 }
