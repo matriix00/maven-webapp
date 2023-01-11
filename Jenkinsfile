@@ -24,7 +24,7 @@ node{
 				artifactId: '01-maven-web-app',
 				classifier: '',
 				file: 'target/01-maven-web-app.war',
-				type: war		
+				type: "war"		
 			]	
 		],
 		credentialsId: 'nexus-secret',
