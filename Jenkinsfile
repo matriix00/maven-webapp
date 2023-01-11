@@ -29,7 +29,7 @@ node{
 			]	
 		],
 		credentialsId: 'nexus-secret',
-		groupId: 'in.magdy',
+		groupId: 'in.ashokit',
 		nexusUrl: 'http://54.174.47.242:8081/',
 		protocol: 'http',
 		repository: 'simpleapp-release'
