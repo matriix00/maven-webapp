@@ -19,7 +19,6 @@ node{
 // }
         
     stage('upload war to nexus'){
-	steps{
 		nexusArtifactUploader artifacts: [	
 			[
 				artifactId: '01-maven-web-app',
@@ -34,7 +33,7 @@ node{
 		protocol: 'http',
 		repository: 'simpleapp-release'
 		version: '1.0.0'
-	}
+	
 }
     
 //     stage('Build Image'){
