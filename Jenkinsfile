@@ -25,12 +25,11 @@ node{
 				classifier: '',
 				file: 'target/01-maven-web-app.war',
 				type: "war",
-                nexusVersion: "nexus3",		
 			]	
 		],
 		credentialsId: 'nexus-secrets',
 		groupId: 'in.ashokit',
-		nexusUrl: '54.174.47.242:8081',
+		nexusUrl: '54.174.47.242:8081/',
 		protocol: 'http',
 		repository: 'simpleapp-release'
 		version: '1.0.0'
