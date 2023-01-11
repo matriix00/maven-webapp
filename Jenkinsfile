@@ -30,7 +30,7 @@ node{
 		],
 		credentialsId: 'nexus-secret',
 		groupId: 'in.ashokit',
-		nexusUrl: 'http://54.174.47.242:8081/',
+		nexusUrl: '54.174.47.242:8081',
 		protocol: 'http',
 		repository: 'simpleapp-release'
 		version: '1.0.0'
