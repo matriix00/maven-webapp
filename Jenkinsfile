@@ -37,14 +37,14 @@ node{
 // }
     
     stage('Build Image'){
-        sh 'sudo docker build -t magdy79/mavenwebapp .'
+        sh ' docker build -t magdy79/mavenwebapp .'
     }
     
     stage('Push Image'){
         withCredentials([string(credentialsId: 'dockerhub-secret', variable: 'pass')]) {
-            sh 'sudo docker login -u magdy79 -p ${pass}'
+            sh ' docker login -u magdy79 -p ${pass}'
         }
-        sh 'sudo docker push magdy79/mavenwebapp'
+        sh ' docker push magdy79/mavenwebapp'
     }
     
 //     stage('Deploy App'){
