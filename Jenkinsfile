@@ -41,7 +41,7 @@ node{
     }
     
     stage('Push Image'){
-        withCredentials([string(credentialsId: 'dockerhub-secret', variable: 'pass')]) {
+        withCredentials([string(credentialsId: 'docker-credentials', variable: 'pass')]) {
             sh ' docker login -u magdy79 -p ${pass}'
         }
         sh ' docker push magdy79/mavenwebapp'
