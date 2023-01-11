@@ -37,7 +37,7 @@ node{
 // }
     
     stage('Build Image'){
-        sh 'docker build -t magdy79/mavenwebapp .'
+        sh 'sudo docker build -t magdy79/mavenwebapp .'
     }
     
     stage('Push Image'){
