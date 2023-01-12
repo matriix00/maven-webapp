@@ -17,7 +17,13 @@ node{
 //        	sh "${mavenCMD} sonar:sonar"    	
 //     }
 // }
-        
+// deploy to tomcat9 
+stage ('Deploy') {
+        script {
+          deploy adapters: [tomcat9(credentialsId: 'tomcat-secret', path: '', url: 'http://44.201.222.136:8080/')], contextPath: 'maven-web-app', onFailure: false, war: 'target/*.war' 
+        }
+      
+    }        
 //     stage('upload war to nexus'){
 // 		nexusArtifactUploader artifacts: [	
 // 			[
